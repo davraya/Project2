@@ -45,7 +45,12 @@ const updateBook = async (req, res) => {
             pages : req.body.pages,
             description : req.body.description
         } 
-        
+
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+          return res.status(422).json({ errors: errors.array() })
+        }
+
         const bookId = new ObjectId(req.params.id);
     
         const client = await mongodb.getDb();
