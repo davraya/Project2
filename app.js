@@ -1,7 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(express.json()) // for the post and update request to work
+app.use(bodyParser.json());
+
 
 
 const swaggerUi = require('swagger-ui-express');
