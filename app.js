@@ -28,7 +28,7 @@ function isLoggedIn(req, res, next) {
     passport.authenticate('google', { scope: [ 'email', 'profile' ] }
   ));
   
-  app.get( '/auth/google/callback',
+  app.get( '/google/callback',
     passport.authenticate( 'google', {
       successRedirect: '/protected',
       failureRedirect: '/auth/google/failure'
